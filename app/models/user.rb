@@ -14,4 +14,13 @@ class User < ApplicationRecord
     validates :last_name_kana
   end
 
+  with_options presence: true, format: { with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/ ,message: "半角英数字のみで入力して下さい" } do
+    validates :password
+  end
+
+  validates :nickname, presence: true
+  validates :date_of_birth, presence: true
+  validates :last_name, presence: true
+  validates :last_name_kana, presence: true
+
 end
