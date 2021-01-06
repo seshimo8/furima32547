@@ -5,7 +5,6 @@ RSpec.describe Category, type: :model do
     it 'category_idが1では登録できない' do
       item = Item.new(category_id: 1)
       item.valid?
-      binding.pry
       expect(item.errors.full_messages).to include('Category must be other than 1')
     end
   end

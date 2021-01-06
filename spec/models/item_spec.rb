@@ -36,5 +36,35 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include 'Price must be less than 10000000'
     end
+    it 'category_idが1では登録できない' do
+      item = Item.new(category_id: 1)
+      item.valid?
+      expect(item.errors.full_messages).to include('Category must be other than 1')
+    end
+    it 'condition_idが1では登録できない' do
+      item = Item.new(condition_id: 1)
+      item.valid?
+      expect(item.errors.full_messages).to include('Condition must be other than 1')
+    end
+    it 'day_to_ship_idが1では登録できない' do
+      item = Item.new(day_to_ship_id: 1)
+      item.valid?
+      expect(item.errors.full_messages).to include('Day to ship must be other than 1')
+    end
+    it 'prefecture_idが1では登録できない' do
+      item = Item.new(prefecture_id: 1)
+      item.valid?
+      expect(item.errors.full_messages).to include('Prefecture must be other than 1')
+    end
+    it 'shipping_charge_idが1では登録できない' do
+      item = Item.new(shipping_charge_id: 1)
+      item.valid?
+      expect(item.errors.full_messages).to include('Shipping charge must be other than 1')
+    end
+    it 'imageが空では登録できない' do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Image can't be blank"
+    end
   end
 end
