@@ -21,10 +21,8 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
-
-  with_options presence: true, format: { with: /\A-?[0-9]+(\.[0-9]+)?\z/, message: '半角数字で入力' } do
-    validates :price
+  with_options numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 } do
+    validates :price, format: { with: /\A-?[0-9]+(\.[0-9]+)?\z/, message: '半角数字で入力' }
   end
 
   with_options numericality: { other_than: 1 } do
