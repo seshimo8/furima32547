@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     name              { 'test' }
     text              { 'test' }
-    price             { '1000' }
+    price             { 1000 }
     category_id       { 2 }
     condition_id      { 2 }
     shipping_charge_id{ 2 }
