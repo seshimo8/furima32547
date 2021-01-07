@@ -33,7 +33,7 @@
       <p class='or-text'>or</p>
       <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
    
-    <% elsif user_signed_in? %>
+    <% else %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
       <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
     <% end %>
