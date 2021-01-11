@@ -7,6 +7,14 @@ class OrdersController < ApplicationController
     else
       redirect_to root_path
     end
+
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+
+    if user_signed_in? && @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -38,6 +46,4 @@ class OrdersController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
-
-
 end
