@@ -11,6 +11,8 @@ class OrderAddress
     validates :city
     validates :house_number
     validates :phone_number, numericality: { maximum: 11 , message: 'Input only number' }
+    validates :user_id
+    validates :item_id
   end
 
   with_options numericality: { other_than: 1 } do
