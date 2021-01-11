@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
-  
+  before_action :set_item, only: [:index, :create]
+
   def index
     @order_address = OrderAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(address_params)
     if @order_address.valid?
       pay_item
@@ -30,6 +29,10 @@ class OrdersController < ApplicationController
       card: address_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 
