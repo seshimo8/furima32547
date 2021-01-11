@@ -10,7 +10,7 @@ class OrderAddress
     validates :prefecture_id
     validates :city
     validates :house_number
-    validates :phone_number, numericality: { maximum: 11 , message: 'Input only number' }
+    validates :phone_number, length: { maximum: 11 , message: 'Input only number' }
     validates :user_id
     validates :item_id
   end
@@ -23,6 +23,8 @@ class OrderAddress
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(prefecture_id: prefecture_id, postal_code: postal_code, city: city, house_number: house_number, building_name: building_name, phone_number: phone_number, order_id: order.id)
   end
+
+
 
 
 end

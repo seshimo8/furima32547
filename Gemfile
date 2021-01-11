@@ -70,3 +70,5 @@ group :development do
 end
 
 gem 'payjp'
+
+gem 'faker'
