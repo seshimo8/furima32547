@@ -10,7 +10,7 @@ class OrderAddress
     validates :prefecture_id
     validates :city
     validates :house_number
-    validates :phone_number, length: { maximum: 11 , message: 'Input only number' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'Input only number' }
     validates :user_id
     validates :item_id
   end
